@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="AI Assistant" icon-name="utility:einstein">
+        <div class="panel">
+            <lightning-textarea
+                label="Request"
+                value={prompt}
+                onchange={handlePromptChange}
+                placeholder="Ask for a case summary, next best action, or response draft">
+            </lightning-textarea>
+
+            <div class="actions">
+                <lightning-button
+                    variant="brand"
+                    label="Generate"
+                    onclick={handleGenerate}
+                    disabled={isGenerateDisabled}>
+                </lightning-button>
+            </div>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Generating response" size="small"></lightning-spinner>
+            </template>
+
+            <template if:true={responseText}>
+                <section class="response" aria-live="polite">
+                    <lightning-formatted-rich-text value={responseText}></lightning-formatted-rich-text>
+                </section>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="error" role="alert">{errorMessage}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
