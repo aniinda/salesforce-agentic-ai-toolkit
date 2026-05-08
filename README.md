@@ -43,6 +43,7 @@ flowchart TB
 ## Setup
 
 1. Install Python dependencies with `pip install -r requirements.txt`.
+Note: Knowledge__kav is the default API name for Salesforce Knowledge articles. Verify your org's Knowledge object API name before deploying the RAG pipeline — it may differ depending on org configuration and package version.
 2. Configure Salesforce connected app credentials for Python examples.
 3. Configure Named Credentials in Salesforce:
    - `callout:Anthropic_API`
